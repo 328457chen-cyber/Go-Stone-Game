@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Go Stone!!! - ניהול</title>
+  <link rel="icon" href="../images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+  <div id="navRoot"></div>
+
+  <main class="page wide">
+    <h1 class="greeting">לוח ניהול</h1>
+    <p class="sub">משתמשים, מיילים, קודים ושיאים במקום אחד</p>
+
+    <section class="stats">
+      <div class="stat-card"><span class="stat-label">משתמשים רשומים</span><span class="stat-number" id="statUsers">0</span></div>
+      <div class="stat-card"><span class="stat-label">משחקים ששוחקו</span><span class="stat-number" id="statGames">0</span></div>
+      <div class="stat-card"><span class="stat-label">השיא הגבוה</span><span class="stat-number" id="statBest">0</span></div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2 class="section-title">משתמשים</h2>
+        <div class="tools">
+          <input type="search" id="userSearch" placeholder="חיפוש לפי שם או מייל" aria-label="חיפוש משתמשים">
+          <button type="button" class="btn tonal small" id="toggleCodes">הצגת קודים</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="responsive-table">
+          <thead>
+            <tr><th>#</th><th>שם</th><th>מייל</th><th>קוד (סיסמה)</th><th>נרשם</th><th>פעולות</th></tr>
+          </thead>
+          <tbody id="usersBody"></tbody>
+        </table>
+      </div>
+      <p id="noUsers" class="empty hidden">אין משתמשים להצגה</p>
+    </section>
+
+    <section>
+      <h2 class="section-title">כל השיאים</h2>
+      <div class="table-wrap">
+        <table class="responsive-table">
+          <thead>
+            <tr><th>#</th><th>שם</th><th>מייל</th><th>ניקוד</th><th>רמה</th><th>תאריך</th></tr>
+          </thead>
+          <tbody id="scoresBody"></tbody>
+        </table>
+      </div>
+      <p id="noScores" class="empty hidden">עדיין אין שיאים</p>
+    </section>
+  </main>
+
+  <!-- אישור מחיקה -->
+  <dialog id="deleteDialog">
+    <h2>מחיקת משתמש</h2>
+    <p id="deleteText"></p>
+    <div class="dialog-actions">
+      <button type="button" class="btn danger" id="confirmDeleteBtn">מחיקה</button>
+      <button type="button" class="btn tonal" id="cancelDeleteBtn">ביטול</button>
+    </div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <script src="../scripts/storage.js"></script>
+  <script src="../scripts/nav.js"></script>
+  <script src="../scripts/admin.js"></script>
+  <footer class="site-footer">
+    <strong>© 2026 כל הזכויות שמורות ל Go Stone!!!</strong>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Go Stone!!! - שיאים</title>
+  <link rel="icon" href="../images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+  <div id="navRoot"></div>
+
+  <main class="page">
+     <img class="logo-hero" src="../images/logo.png" alt="Go Stone" width="260" height="260">
+    <h1 class="greeting">טבלת שיאים</h1>
+    <p class="sub">התוצאות הגבוהות של כל השחקנים</p>
+
+    <div class="field inline">
+      <label for="levelFilter">רמה</label>
+      <select id="levelFilter">
+        <option value="all">הכול</option>
+        <option value="fast">מהיר</option>
+        <option value="medium">בינוני</option>
+        <option value="slow">איטי</option>
+      </select>
+    </div>
+
+    <div class="table-wrap">
+      <table class="responsive-table">
+        <thead>
+          <tr><th>#</th><th>שם</th><th>ניקוד</th><th>רמה</th><th>תאריך</th></tr>
+        </thead>
+        <tbody id="scoresBody"></tbody>
+      </table>
+    </div>
+    <p id="emptyMessage" class="empty hidden">עדיין אין שיאים. אפשר להיות הראשונים!</p>
+  </main>
+
+  <script src="../scripts/storage.js"></script>
+  <script src="../scripts/nav.js"></script>
+  <script src="../scripts/leaderboard.js"></script>
+  <footer class="site-footer">
+    <strong>© 2026 כל הזכויות שמורות ל Go Stone!!!</strong>
+  </footer>
+</body>
+</html>

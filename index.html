@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Go Stone!!! - כניסה</title>
+  <link rel="icon" href="images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <header class="topbar auth-topbar">
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="images/logo-nav.png" alt="">
+      <span>Go Stone</span>
+    </a>
+    <button type="button" class="burger" id="authMenuBtn" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="authMenu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="authMenu" aria-label="תפריט ראשי">
+      <span class="nav-user">שלום, אורח</span>
+      <button type="button" class="auth-menu-link" data-auth-mode="login">התחברות</button>
+      <button type="button" class="auth-menu-link" data-auth-mode="register">הרשמה</button>
+    </nav>
+  </header>
+
+  <main class="auth">
+   
+
+    <img class="logo-hero" src="images/logo.png" alt="Go Stone" width="260" height="260">
+<h1 class="visually-hidden">Go Stone</h1>
+    <p class="sub" id="authSub">התחברו עם שם משתמש וסיסמה</p>
+
+    <!-- מעבר בין התחברות להרשמה -->
+    <div class="tabs" role="tablist">
+      <button type="button" class="tab active" data-mode="login" role="tab" aria-selected="true">התחברות</button>
+      <button type="button" class="tab" data-mode="register" role="tab" aria-selected="false">הרשמה</button>
+    </div>
+
+    <form id="authForm" novalidate>
+      <div class="field">
+        <label for="username">שם משתמש</label>
+        <input type="text" id="username" name="username" autocomplete="username">
+      </div>
+
+      <!-- מייל נדרש רק בהרשמה -->
+      <div class="field hidden" id="emailField">
+        <label for="email">מייל</label>
+        <input type="email" id="email" name="email" autocomplete="email" inputmode="email" dir="ltr">
+      </div>
+
+      <div class="field">
+        <label for="password">סיסמה</label>
+        <input type="password" id="password" name="password" autocomplete="current-password" dir="ltr">
+      </div>
+
+     <button type="button" class="btn-admin-login" id="adminLoginBtn">
+  <span class="admin-icon">🛡️</span>
+  <span>כניסת מנהל מערכת</span>
+</button>
+      <button type="submit" class="btn primary" id="submitBtn">התחברות</button>
+      <p id="authMessage" class="message" role="alert"></p>
+    </form>
+  </main>
+
+  <script src="scripts/storage.js"></script>
+  <script src="scripts/auth.js"></script>
+  <footer class="site-footer">
+    <strong>© 2026 כל הזכויות שמורות ל Go Stone!!!</strong>
+  </footer>
+</body>
+</html>

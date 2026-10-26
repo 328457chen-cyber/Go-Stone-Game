@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Go Stone!!! - משחק</title>
+  <link rel="icon" href="../images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body class="game-page">
+  <div id="navRoot"></div>
+
+  <main class="game">
+    <div class="game-head">
+      <div class="game-stats">
+        <div class="stat">
+          <span class="stat-label">ניקוד</span>
+          <span class="stat-value" id="scoreValue">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">רמה</span>
+          <span class="stat-value small" id="levelLabel">-</span>
+        </div>
+      </div>
+      <div class="game-controls">
+        <button type="button" class="btn pause-btn" id="pauseBtn" aria-label="עצירת המשחק" aria-pressed="false">
+          <svg class="pause-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="6" y="5" width="4" height="14" rx="1"></rect>
+            <rect x="14" y="5" width="4" height="14" rx="1"></rect>
+          </svg>
+          <svg class="play-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8 5.8a1 1 0 0 1 1.5-.86l10 6.2a1 1 0 0 1 0 1.72l-10 6.2A1 1 0 0 1 8 18.2z"></path>
+          </svg>
+          <span id="pauseLabel">עצירה</span>
+        </button>
+        <button type="button" class="btn primary small finish-btn" id="finishBtn">סיום משחק</button>
+        <button type="button" class="icon-btn" id="helpBtn" aria-label="הוראות מהירות" title="הוראות מהירות">?</button>
+      </div>
+    </div>
+
+    <div class="timer">
+      <div class="timer-label">
+        <span>זמן להכנסת שלוש הצורות</span>
+        <span id="timerValue">--</span>
+      </div>
+      <div class="timer-track"><div id="timerBar" class="timer-bar"></div></div>
+    </div>
+
+    <div class="board-wrap">
+      <div id="board" aria-label="לוח המשחק"></div>
+    </div>
+
+    <div id="tray" class="tray" aria-label="הצורות לגרירה"></div>
+
+    <p class="hint">במחשב אפשר ללחוץ על H להוראות מהירות</p>
+  </main>
+
+  <!-- הוראות מהירות. אלמנט dialog מובנה (showModal / close) -->
+  <dialog id="helpDialog">
+    <h2>הוראות מהירות</h2>
+    <ul class="plain-list">
+      <li>גוררים כל צורה אל מקום פנוי בלוח.</li>
+      <li>שורה או טור שלמים נמחקים ומפנים מקום.</li>
+      <li>בזמן שהחלונית פתוחה הזמן עומד.</li>
+    </ul>
+    <div class="dialog-actions">
+      <button type="button" class="btn primary" id="closeHelpBtn">המשך משחק</button>
+    </div>
+  </dialog>
+
+  <dialog id="finishDialog">
+    <h2>לסיים את המשחק?</h2>
+    <p class="muted">הניקוד הנוכחי יישמר בטבלת השיאים.</p>
+    <div class="dialog-actions">
+      <button type="button" class="btn tonal" id="cancelFinishBtn">להמשיך לשחק</button>
+      <button type="button" class="btn primary" id="confirmFinishBtn">לסיים ולשמור</button>
+    </div>
+  </dialog>
+
+  <!-- סיום משחק -->
+  <dialog id="gameOverDialog">
+    <h2>המשחק נגמר</h2>
+    <p class="muted" id="gameOverReason"></p>
+    <p class="final-label">הניקוד שלכם</p>
+    <p class="final-score" id="finalScore">0</p>
+    <div class="dialog-actions column">
+      <a class="btn primary" id="playAgainLink" href="game.html">משחק חדש</a>
+      <a class="btn tonal" href="leaderboard.html">טבלת שיאים</a>
+      <a class="btn tonal" href="menu.html">חזרה לתפריט</a>
+    </div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <script src="../scripts/storage.js"></script>
+  <script src="../scripts/nav.js"></script>
+  <script src="../scripts/sounds.js"></script>
+  <script src="../scripts/shapes.js"></script>
+  <script src="../scripts/board.js"></script>
+  <script src="../scripts/game.js"></script>
+  <footer class="site-footer">
+    <strong>© 2026 כל הזכויות שמורות ל Go Stone!!!</strong>
+  </footer>
+</body>
+</html>
